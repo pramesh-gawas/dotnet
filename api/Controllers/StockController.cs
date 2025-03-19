@@ -28,7 +28,7 @@ namespace api.Controllers
         {
             var stocks = await _stockRepo.GetAllAsync();
             var stockDto = stocks.Select(s => s.ToStockDto());
-            return Ok(stocks);
+            return Ok(stockDto);
         }
 
         [HttpGet("{id}")]
@@ -97,5 +97,31 @@ namespace api.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpGet]
+        [Route("api/stock/pagination")]
+        public async Task<IActionResult> GetAll(int pageNumber = 1, int pageSize = 10)
+        {
+            var stocks = await _stockRepo.GetAllAsync();
+            var totalCount = stocks.Count;
+
+            var paginatedStocks = stocks
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(s => s.ToStockDto());
+
+            var response = new
+            {
+                TotalCount = totalCount,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                Items = paginatedStocks
+            };
+
+            return Ok(response);
+        }
+
+
+
     }
 }

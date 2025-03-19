@@ -165,3 +165,4 @@ C:\Users\Pramesh\Desktop\dotnetWebApi\api\bin\Debug\net9.0\Microsoft.Extensions.
 C:\Users\Pramesh\Desktop\dotnetWebApi\api\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 C:\Users\Pramesh\Desktop\dotnetWebApi\api\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\Pramesh\Desktop\dotnetWebApi\api\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\Pramesh\Desktop\dotnetWebApi\api\obj\Debug\net9.0\api.sourcelink.json
